@@ -95,9 +95,9 @@ export default {
         connectTimeout: 4000, // 연결시간 초과
         reconnectPeriod: 4000, // 재연결 간격
         // 인증정보
-        clientId: "mqttjs_3be2c321",
-        username: "emqx_test",
-        password: "emqx_test"
+        clientId: "mqttx_cea55101",
+        username: "dongwoo",
+        password: "zjarhd245!"
       }
     };
   },
@@ -119,7 +119,8 @@ export default {
         console.log("커넥션 에러", error); // connect 에러 발생 시
       });
       client.on("message", (topic, message) => {
-        this.receiveNews = this.receiveNews.concat(message); // 메시지가 올 시
+        const receiveNews = this.receiveNews.concat(message); // 메시지가 올 시
+        this.$emit("update:receiveNews", receiveNews);
         console.log(`Received message ${message} from topic ${topic}`);
       });
       this.$emit("update:connection", client);
@@ -137,5 +138,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

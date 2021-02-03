@@ -61,7 +61,7 @@ export default {
   data() {
     return {
       subscription: {
-        topic: "topic/mqttx",
+        topic: "testtopic/#",
         qos: 0
       },
       qosList: [

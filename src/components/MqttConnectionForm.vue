@@ -7,7 +7,7 @@
       <mqtt-configuration-form
         :client="client"
         :connection.sync="client"
-        :receiveNews="receiveNews"
+        :receiveNews.sync="receiveNews"
       />
     </el-card>
     <el-card shadow="always" style="margin-bottom:30px;">
