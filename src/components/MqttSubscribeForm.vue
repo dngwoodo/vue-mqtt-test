@@ -3,7 +3,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    client: {
+      type: Object,
+      default: () => {}
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
