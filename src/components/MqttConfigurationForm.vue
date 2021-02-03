@@ -79,6 +79,10 @@ export default {
     client: {
       type: Object,
       default: () => {}
+    },
+    receiveNews: {
+      type: String,
+      default: ""
     }
   },
   data() {

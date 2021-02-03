@@ -4,7 +4,11 @@
       <div class="emq-title">
         configuration
       </div>
-      <mqtt-configuration-form :client="client" :connection.sync="client" />
+      <mqtt-configuration-form
+        :client="client"
+        :connection.sync="client"
+        :receiveNews="receiveNews"
+      />
     </el-card>
     <el-card shadow="always" style="margin-bottom:30px;">
       <div class="emq-title">
@@ -17,6 +21,19 @@
         Publish
       </div>
       <mqtt-publish-form :client="client" />
+    </el-card>
+    <el-card shadow="always" style="margin-bottom:30px;">
+      <div class="emq-title">
+        Receive
+      </div>
+      <el-col :span="24">
+        <el-input
+          type="textarea"
+          :rows="3"
+          style="margin-bottom: 15px"
+          v-model="receiveNews"
+        ></el-input>
+      </el-col>
     </el-card>
   </div>
 </template>
@@ -31,7 +48,8 @@ export default {
     return {
       client: {
         connected: false
-      }
+      },
+      receiveNews: ""
     };
   }
 };
