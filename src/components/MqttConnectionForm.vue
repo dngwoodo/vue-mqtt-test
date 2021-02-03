@@ -1,9 +1,15 @@
 <template>
   <div class="container">
     <el-card shadow="always" style="margin-bottom:30px;">
+      <div class="emq-title">
+        configuration
+      </div>
       <mqtt-configuration-form :client="client" :connection.sync="client" />
     </el-card>
     <el-card shadow="always" style="margin-bottom:30px;">
+      <div class="emq-title">
+        Subscribe
+      </div>
       <mqtt-subscribe-form :client="client" />
     </el-card>
   </div>

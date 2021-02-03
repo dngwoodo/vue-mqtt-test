@@ -1,79 +1,74 @@
 <template>
-  <div>
-    <div class="emq-title">
-      configuration
-    </div>
-    <el-form
-      ref="configForm"
-      hide-required-asterisk
-      size="small"
-      label-position="top"
-      :model="connection"
-    >
-      <el-row :gutter="20">
-        <el-col :span="8">
-          <el-form-item prop="host" label="Host">
-            <el-input v-model="connection.host"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item prop="port" label="Port">
-            <el-input
-              v-model.number="connection.port"
-              type="number"
-              placeholder="8083/8084"
-            ></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item prop="endpoint" label="Mountpoint">
-            <el-input
-              v-model="connection.endpoint"
-              placeholder="/mqtt"
-            ></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item prop="clientId" label="Client ID">
-            <el-input v-model="connection.clientId"> </el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item prop="username" label="Username">
-            <el-input v-model="connection.username"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item prop="password" label="Password">
-            <el-input v-model="connection.password"></el-input>
-          </el-form-item>
-        </el-col>
+  <el-form
+    ref="configForm"
+    hide-required-asterisk
+    size="small"
+    label-position="top"
+    :model="connection"
+  >
+    <el-row :gutter="20">
+      <el-col :span="8">
+        <el-form-item prop="host" label="Host">
+          <el-input v-model="connection.host"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="8">
+        <el-form-item prop="port" label="Port">
+          <el-input
+            v-model.number="connection.port"
+            type="number"
+            placeholder="8083/8084"
+          ></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="8">
+        <el-form-item prop="endpoint" label="Mountpoint">
+          <el-input
+            v-model="connection.endpoint"
+            placeholder="/mqtt"
+          ></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="8">
+        <el-form-item prop="clientId" label="Client ID">
+          <el-input v-model="connection.clientId"> </el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="8">
+        <el-form-item prop="username" label="Username">
+          <el-input v-model="connection.username"></el-input>
+        </el-form-item>
+      </el-col>
+      <el-col :span="8">
+        <el-form-item prop="password" label="Password">
+          <el-input v-model="connection.password"></el-input>
+        </el-form-item>
+      </el-col>
 
-        <el-col :span="24">
-          <el-button
-            type="success"
-            size="small"
-            class="conn-btn"
-            style="margin-right: 20px;"
-            :disabled="client.connected"
-            @click="createConnection"
-          >
-            {{ client.connected ? "Connected" : "Connect" }}
-          </el-button>
+      <el-col :span="24">
+        <el-button
+          type="success"
+          size="small"
+          class="conn-btn"
+          style="margin-right: 20px;"
+          :disabled="client.connected"
+          @click="createConnection"
+        >
+          {{ client.connected ? "Connected" : "Connect" }}
+        </el-button>
 
-          <el-button
-            v-if="client.connected"
-            type="danger"
-            size="small"
-            class="conn-btn"
-            @click="destroyConnection"
-          >
-            Disconnect
-          </el-button>
-        </el-col>
-      </el-row>
-    </el-form>
-  </div>
+        <el-button
+          v-if="client.connected"
+          type="danger"
+          size="small"
+          class="conn-btn"
+          @click="destroyConnection"
+        >
+          Disconnect
+        </el-button>
+      </el-col>
+    </el-row>
+  </el-form>
 </template>
 
 <script>
