@@ -12,14 +12,21 @@
       </div>
       <mqtt-subscribe-form :client="client" />
     </el-card>
+    <el-card shadow="always" style="margin-bottom:30px">
+      <div class="emq-title">
+        Publish
+      </div>
+      <mqtt-publish-form :client="client" />
+    </el-card>
   </div>
 </template>
 
 <script>
 import MqttConfigurationForm from "./MqttConfigurationForm.vue";
+import MqttPublishForm from "./MqttPublishForm.vue";
 import MqttSubscribeForm from "./MqttSubscribeForm.vue";
 export default {
-  components: { MqttConfigurationForm, MqttSubscribeForm },
+  components: { MqttConfigurationForm, MqttSubscribeForm, MqttPublishForm },
   data() {
     return {
       client: {
